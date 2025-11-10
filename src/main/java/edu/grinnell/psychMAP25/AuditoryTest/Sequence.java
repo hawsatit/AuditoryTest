@@ -4,13 +4,19 @@ import java.util.List;
 
 public class Sequence {
     private final List<String> symbols;
+    private final boolean isGrammatical;
 
-    public Sequence(List<String> symbols) {
-        this.symbols = symbols;
+    public Sequence(List<String> toneLabels, boolean isGrammatical) {
+        this.symbols = toneLabels;
+        this.isGrammatical = isGrammatical;
     }
 
-    public List<String> getSymbols() {
+    public List<String> getToneLabels() {
         return symbols;
+    }
+
+    public boolean isGrammatical() {
+        return isGrammatical;
     }
 
     public void play() {

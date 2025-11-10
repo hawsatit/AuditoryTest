@@ -31,8 +31,6 @@ public class TonePlayer {
             System.err.println("⚠️ Unknown symbol: " + symbol);
             return;
         }
-
-        System.out.println("🔊 Playing: " + symbol + " (" + freq + " Hz)");
         try {
             playTone(freq);
         } catch (LineUnavailableException e) {

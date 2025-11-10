@@ -16,94 +16,12 @@ public class SequenceBank {
 
     public static List<Sequence> getAllSequences() {
         List<Sequence> sequences = new ArrayList<>();
-        
-        sequences.add(new Sequence(List.of("A1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B1", "B2", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B1", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A1", "B2", "B2", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B1", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B1", "B2", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B1", "B2", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B1", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B1", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B1", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B1", "B2", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B2", "B1", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B2", "B1", "A2")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B2", "B2", "A1")));
-        sequences.add(new Sequence(List.of("A2", "B2", "B2", "B2", "B2", "A2")));
-        
 
-        // Add more sequences here as needed
+        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B1", "B1", "A1"), true)); 
+        sequences.add(new Sequence(List.of("A1", "B1", "B1", "B1", "B1", "A2"), false));  
+        sequences.add(new Sequence(List.of("A2", "C2", "D", "D", "D", "A2"), true));
+        sequences.add(new Sequence(List.of("A2", "C2", "D", "D", "D", "A1"), false));
+
 
         Collections.shuffle(sequences); // Randomize order each time
         return sequences;
