@@ -1,5 +1,6 @@
 edu/grinnell/psychMAP25/AuditoryTest/SequenceRunner.class
 edu/grinnell/psychMAP25/AuditoryTest/Sequence.class
+edu/grinnell/psychMAP25/AuditoryTest/SequenceBank2.class
 edu/grinnell/psychMAP25/AuditoryTest/SequenceBank.class
 edu/grinnell/psychMAP25/AuditoryTest/TonePlayer.class
 edu/grinnell/psychMAP25/AuditoryTest/Tone.class

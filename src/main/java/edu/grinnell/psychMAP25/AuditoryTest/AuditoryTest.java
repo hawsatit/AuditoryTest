@@ -76,10 +76,23 @@ public class AuditoryTest {
         System.out.println("Welcome to the auditory test phase.\n" +
                 "You will hear a series of tone sequences.\n" +
                 "After each sequence, you will be asked if it sounds familiar.");
+        System.out.println("Which sequence bank would you like to use?");
+        System.out.println("Enter 'a' for Condition A or 'b' for Condition B:");
+        String bankChoice = scanner.nextLine().trim().toLowerCase();
+        
         System.out.println("Press Enter to begin...");
         scanner.nextLine();
+        
+        clearConsole();
+       
 
-        List<Sequence> sequences = SequenceBank.getAllSequences();
+        List<Sequence> sequences;
+        if (bankChoice.equals("b")) {
+            sequences = SequenceBank2.getAllSequences();
+        } else {
+            sequences = SequenceBank.getAllSequences();
+        }
+
         List<Integer> responses = new ArrayList<>();
 
         int questionNumber = 1;
