@@ -32,11 +32,8 @@ public class AuditoryTest {
             String input = scanner.nextLine().trim();
             try {
                 result = Integer.parseInt(input);
-                if (result >= 0) {
-                    return result;
-                } else {
-                    System.out.println("Please enter a non-negative number.");
-                }
+                if (result >= 0) return result;
+                else System.out.println("Please enter a non-negative number.");
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
             }
@@ -62,13 +59,31 @@ public class AuditoryTest {
         }
     }
 
+    public static void runPhase(List<Sequence> sequences, Scanner scanner, List<Sequence> allSeqs, List<Integer> responses, List<Integer> correctness, int[] questionNumber) throws InterruptedException {
+        for (Sequence sequence : sequences) {
+            if (!running) break;
+            clearConsole();
+            sequence.play();
+
+            int response = getValidatedResponse(scanner, questionNumber[0]);
+            if (!running || response == -1) break;
+
+            allSeqs.add(sequence);
+            responses.add(response);
+            boolean isCorrect = (sequence.isGrammatical() && response == 1)
+                    || (!sequence.isGrammatical() && response == 0);
+            correctness.add(isCorrect ? 1 : 0);
+
+            questionNumber[0]++;
+            Thread.sleep(1000);
+        }
+    }
+
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
-        // Get participant number
         int participantNumber = getValidatedIntegerInput(scanner, "Please enter participant number:");
 
-        // Prompt for test bank
         clearConsole();
         System.out.println("Which sequence bank would you like to use?");
         System.out.println("Enter 'a' for Condition A or 'b' for Condition B:");
@@ -78,38 +93,41 @@ public class AuditoryTest {
         scanner.nextLine();
         clearConsole();
 
-        // Load the appropriate sequence bank
-        List<Sequence> sequences;
+        List<Sequence> sequences1, sequences2, sequences3;
+
         if (bankChoice.equals("b")) {
-            sequences = SequenceBank2.getAllSequences();
+            sequences1 = SequenceBankB1.getAllSequences();
+            sequences2 = SequenceBankB2.getAllSequences();
+            sequences3 = SequenceBankB3.getAllSequences();
         } else {
-            sequences = SequenceBank.getAllSequences();
+            sequences1 = SequenceBankA1.getAllSequences();
+            sequences2 = SequenceBankA2.getAllSequences();
+            sequences3 = SequenceBankA3.getAllSequences();
         }
 
+        List<Sequence> allSequences = new ArrayList<>();
         List<Integer> responses = new ArrayList<>();
         List<Integer> correctness = new ArrayList<>();
-        int questionNumber = 1;
+        int[] questionNumber = {1};
 
-        for (Sequence sequence : sequences) {
-            if (!running) break;
+        // Run Phase 1
+        runPhase(sequences1, scanner, allSequences, responses, correctness, questionNumber);
+        if (!running) return;
 
-            clearConsole();
-            sequence.play();
+        // Phase 2
+        clearConsole();
+        System.out.println("End of Phase 1. Press Enter to begin Phase 2...");
+        scanner.nextLine();
+        runPhase(sequences2, scanner, allSequences, responses, correctness, questionNumber);
+        if (!running) return;
 
-            int response = getValidatedResponse(scanner, questionNumber);
-            if (!running || response == -1) break;
+        // Phase 3
+        clearConsole();
+        System.out.println("End of Phase 2. Press Enter to begin Phase 3...");
+        scanner.nextLine();
+        runPhase(sequences3, scanner, allSequences, responses, correctness, questionNumber);
 
-            responses.add(response);
-
-            boolean isCorrect = (sequence.isGrammatical() && response == 1)
-                    || (!sequence.isGrammatical() && response == 0);
-            correctness.add(isCorrect ? 1 : 0);
-
-            questionNumber++;
-            Thread.sleep(1000);
-        }
-
-        // Save to CSV
+        // Save results
         String filePath = "results/participant_" + participantNumber + "_auditory.csv";
         FileWriter logWriter = new FileWriter(filePath);
         logWriter.write("Participant," + participantNumber + "\n");
@@ -117,7 +135,7 @@ public class AuditoryTest {
         logWriter.write("SequenceNumber,Sequence,IsGrammatical,Response,Correct\n");
 
         for (int i = 0; i < responses.size(); i++) {
-            Sequence seq = sequences.get(i);
+            Sequence seq = allSequences.get(i);
             logWriter.write((i + 1) + "," + seq.toString() + "," + seq.isGrammatical() + "," +
                     responses.get(i) + "," + correctness.get(i) + "\n");
         }
@@ -128,7 +146,5 @@ public class AuditoryTest {
         System.out.println("Thank you! You have completed the auditory portion of the experiment.");
         System.out.println("Results saved to: " + filePath);
         System.out.println("Total sequences answered: " + responses.size());
-
-        System.exit(0);
     }
 }
