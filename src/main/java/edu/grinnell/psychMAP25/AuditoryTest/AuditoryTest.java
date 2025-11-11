@@ -94,15 +94,24 @@ public class AuditoryTest {
         clearConsole();
 
         List<Sequence> sequences1, sequences2, sequences3;
-
-        if (bankChoice.equals("b")) {
-            sequences1 = SequenceBankB1.getAllSequences();
-            sequences2 = SequenceBankB2.getAllSequences();
-            sequences3 = SequenceBankB3.getAllSequences();
-        } else {
-            sequences1 = SequenceBankA1.getAllSequences();
-            sequences2 = SequenceBankA2.getAllSequences();
-            sequences3 = SequenceBankA3.getAllSequences();
+        
+        while (true){
+            if (bankChoice.equals("b")) {
+                clearConsole();
+                sequences1 = SequenceBankB1.getAllSequences();
+                sequences2 = SequenceBankB2.getAllSequences();
+                sequences3 = SequenceBankB3.getAllSequences();
+                break;
+            } else if (bankChoice.equals("a")){
+                clearConsole();
+                sequences1 = SequenceBankA1.getAllSequences();
+                sequences2 = SequenceBankA2.getAllSequences();
+                sequences3 = SequenceBankA3.getAllSequences();
+                break;
+            } else {
+                clearConsole();
+                System.out.println("You must enter a or b!");
+            }
         }
 
         List<Sequence> allSequences = new ArrayList<>();
